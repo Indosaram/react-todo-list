@@ -67,16 +67,22 @@
       "id": 13
     },
     {
+      "id": 14,
       "task": "20210930",
       "due": "커피마시기",
-      "status": "todo",
-      "id": 14
+      "status": "todo"
     },
     {
+      "id": 15,
       "task": "청소하기",
       "due": "20210903",
-      "status": "todo",
-      "id": 15
+      "status": "todo"
+    },
+    {
+      "id": 16,
+      "task": "리액트 공부하기",
+      "due": "20220101",
+      "status": "todo"
     }
   ]
 }

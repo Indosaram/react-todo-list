@@ -8,15 +8,15 @@ export default function Header() {
       </h1>
       <div className="menu">
         <Link to="/todo" className="link">
-          Todo
+          <button>Todo</button>
         </Link>
 
         <Link to="/done" className="link">
-          Done
+          <button>Done</button>
         </Link>
 
         <Link to="/create_item" className="link">
-          Add Todo
+          <button>Add Todo</button>
         </Link>
       </div>
     </div>

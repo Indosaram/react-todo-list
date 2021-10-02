@@ -23,7 +23,7 @@ export default function Todo({ todo: t }) {
     });
   }
 
-  function DeleteItem() {
+  function deleteItem() {
     if (window.confirm("삭제 하시겠습니까?")) {
       fetch(`${process.env.REACT_APP_BACKEND_API_URI}/items/${todo.id}`, {
         method: "DELETE",
@@ -51,7 +51,7 @@ export default function Todo({ todo: t }) {
       <td>{todo.task}</td>
       <td>{todo.due}</td>
       <td>
-        <button onClick={DeleteItem}>Delete</button>
+        <button onClick={deleteItem}>Delete</button>
       </td>
     </tr>
   );

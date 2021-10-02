@@ -4,7 +4,7 @@ import Header from "./component/Header";
 import CreateItem from "./component/CreateItem";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -28,4 +28,3 @@ function App() {
   );
 }
 
-export default App;
