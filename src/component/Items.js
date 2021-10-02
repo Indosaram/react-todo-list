@@ -2,7 +2,16 @@ import useFetch from "../hook/useFetch.js";
 import Todo from "./Todo.js";
 
 export default function Items({ status }) {
-  const data = useFetch(`${process.env.REACT_APP_BACKEND_API_URI}/items`)
+  var endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items`;
+  if (status === "all") {
+    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items`;
+  } else if (status === "todo") {
+    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items?status=todo`;
+  } else {
+    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items?status=done`;
+  }
+
+  const data = useFetch(endpoint);
 
   Items.defaultProps = {
     status: "all",
@@ -15,11 +24,7 @@ export default function Items({ status }) {
       <td>Due</td>
       <td></td>
       {data.map((todo) => {
-        if ((status === todo.status) | (status === "all")) {
-          return <Todo key={todo.id} todo={todo} />;
-        } else {
-          return null;
-        }
+        return <Todo key={todo.id} todo={todo} />;
       })}
     </table>
   );

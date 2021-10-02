@@ -8,8 +8,8 @@ export default function useFetch(url) {
       .then((res) => {
         return res.json();
       })
-      .then((data) => {
-        setData(data);
+      .then((json_response) => {
+        setData(json_response);
       });
   });
 
