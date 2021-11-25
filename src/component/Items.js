@@ -1,21 +1,20 @@
-import useFetch from "../hook/useFetch.js";
-import Todo from "./Todo.js";
+import { useState, useEffect } from "react";
+import Item from "./Item.js";
 
-export default function Items({ status }) {
-  var endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items`;
-  if (status === "all") {
-    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items`;
-  } else if (status === "todo") {
-    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items?status=todo`;
-  } else {
-    endpoint = `${process.env.REACT_APP_BACKEND_API_URI}/items?status=done`;
-  }
+export default function Items({status}) {
 
-  const data = useFetch(endpoint);
+  const [data, setData] = useState([]);
 
-  Items.defaultProps = {
-    status: "all",
-  };
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_BACKEND_API_URI}/items${status}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((json_response) => {
+        setData(json_response);
+      });
+  });
+
 
   return (
     <table>
@@ -23,8 +22,8 @@ export default function Items({ status }) {
       <td>Task</td>
       <td>Due</td>
       <td></td>
-      {data.map((todo) => {
-        return <Todo key={todo.id} todo={todo} />;
+      {data.map((item) => {
+        return <Item key={item.id} todo={item} />;
       })}
     </table>
   );

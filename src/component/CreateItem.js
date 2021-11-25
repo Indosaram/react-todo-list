@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
-import { useHistory } from "react-router";
-import "./CreateItem.css";
+import { useNavigate } from "react-router";
 
 export default function CreateItem() {
   const [values, setValues] = useState({
@@ -15,7 +14,7 @@ export default function CreateItem() {
       [name]: value,
     });
   };
-  const history = useHistory();
+  const history = useNavigate();
 
   function onSubmit(event) {
     event.preventDefault();
@@ -33,7 +32,7 @@ export default function CreateItem() {
     }).then((res) => {
       if (res.ok) {
         alert("Created new item!");
-        history.push("/todo");
+        history("/todo");
       }
     });
   }
@@ -44,6 +43,7 @@ export default function CreateItem() {
   return (
     <form onSubmit={onSubmit}>
       <div className="input_area">
+        <p>Task</p>
         <input
           type="text"
           name="task"
@@ -53,6 +53,7 @@ export default function CreateItem() {
         />
       </div>
       <div className="input_area">
+        <p>Due</p>
         <input
           type="text"
           name="due"

@@ -16,7 +16,7 @@ export default function Header() {
         </Link>
 
         <Link to="/create_item" className="link">
-          <button>Add Todo</button>
+          <button>Add</button>
         </Link>
       </div>
     </div>

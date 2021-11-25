@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Todo({ todo: t }) {
+export default function Item({ todo: t }) {
   const [todo, setTodo] = useState(t);
 
   function toggleDone() {

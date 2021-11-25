@@ -2,87 +2,63 @@
   "items": [
     {
       "id": 1,
-      "task": "집 치우기",
+      "task": "자기",
       "due": "20210901",
       "status": "done"
     },
     {
       "id": 2,
-      "task": "자기",
-      "due": "20210901",
+      "task": "청소하기",
+      "due": "20210902",
       "status": "done"
     },
     {
       "id": 3,
       "task": "공부하기",
-      "due": "20210901",
+      "due": "20210903",
       "status": "done"
     },
     {
       "id": 4,
       "task": "달리기",
-      "due": "20210901",
-      "status": "todo"
+      "due": "20210904",
+      "status": "done"
     },
     {
       "id": 5,
       "task": "숙제하기",
-      "due": "20210901",
+      "due": "20210905",
       "status": "todo"
     },
     {
       "id": 6,
       "task": "수업듣기",
-      "due": "20210901",
+      "due": "20220901",
       "status": "todo"
     },
     {
       "id": 7,
       "task": "밥먹기",
-      "due": "20210901",
-      "status": "done"
+      "due": "20220101",
+      "status": "todo"
     },
     {
       "id": 8,
       "task": "자기",
-      "due": "20210901",
+      "due": "20220301",
       "status": "done"
     },
     {
       "id": 9,
       "task": "공부하기",
-      "due": "20210901",
+      "due": "20220501",
       "status": "done"
     },
     {
+      "id": 10,
       "task": "게임하기",
-      "due": "20211031",
-      "status": "done",
-      "id": 10
-    },
-    {
-      "task": "커피마시기",
-      "due": "20210919",
-      "status": "done",
-      "id": 13
-    },
-    {
-      "id": 14,
-      "task": "20210930",
-      "due": "커피마시기",
-      "status": "todo"
-    },
-    {
-      "id": 15,
-      "task": "청소하기",
-      "due": "20210903",
-      "status": "todo"
-    },
-    {
-      "id": 16,
-      "task": "리액트 공부하기",
-      "due": "20220101",
-      "status": "todo"
+      "due": "20221031",
+      "status": "done"
     }
   ]
 }
