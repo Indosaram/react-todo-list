@@ -10,9 +10,9 @@ export default function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Items />} />
-          <Route path="/todo" element={<Items status="?status=todo" />} />
-          <Route path="/done" element={<Items status="?status=done" />} />
+          <Route exact path="/" element={<Items status="todo&status=done"/>} />
+          <Route path="/todo" element={<Items status="todo" />} />
+          <Route path="/done" element={<Items status="done" />} />
           <Route path="/create_item" element={<CreateItem />} />
         </Routes>
       </div>

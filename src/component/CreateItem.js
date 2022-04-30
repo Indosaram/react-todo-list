@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./CreateItem.css";
 
 function validate(name, value) {
-  let errors = {};
+  let errors = { task: "", due: "" };
 
   if (name === "task") {
     if (!value) {
@@ -12,7 +12,7 @@ function validate(name, value) {
   } else if (name === "due") {
     if (!value) {
       errors.due = "Due required";
-    } else if (value < 8) {
+    } else if (value.length < 8) {
       errors.due = "Invalid: date should be format of YYYYMMDD";
     }
   }
@@ -24,7 +24,7 @@ export default function CreateItem() {
     task: "",
     due: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({ task: "", due: "" });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -39,11 +39,11 @@ export default function CreateItem() {
   function onSubmit(event) {
     event.preventDefault();
 
-    if (
-      Object.keys(errors).length > 0 ||
-      Object.values(values).some((x) => x === "")
-    ) {
-      alert("Invalud inputs");
+    if (errors.task || errors.due) {
+      alert("Invalid inputs!");
+      return;
+    } else if (!values.task || !values.due) {
+      alert("There are missing fields!");
       return;
     }
 
@@ -53,8 +53,8 @@ export default function CreateItem() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        task: taskRef.current.value,
-        due: dueRef.current.value,
+        task: values.task,
+        due: values.due,
         status: "todo",
       }),
     }).then((res) => {
@@ -65,24 +65,16 @@ export default function CreateItem() {
     });
   }
 
-  const taskRef = useRef(null);
-  const dueRef = useRef(null);
-
   return (
     <form onSubmit={onSubmit}>
       <div className="input_area">
-        <p>Task</p>
         <label>Task</label>
         <input
           type="text"
           name="task"
-          ref={taskRef}
           value={values.task}
           onChange={handleChange}
         />
-      </div>
-      <div className="input_area">
-        <p>Due</p>
         {errors.task && <p>{errors.task}</p>}
       </div>
       <div className="input_area">
@@ -90,7 +82,6 @@ export default function CreateItem() {
         <input
           type="text"
           name="due"
-          ref={dueRef}
           value={values.due}
           onChange={handleChange}
         />
