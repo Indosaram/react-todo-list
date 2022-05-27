@@ -9,8 +9,8 @@ export default function Items({ status }) {
       .then((res) => {
         return res.json();
       })
-      .then((json_response) => {
-        setData(json_response);
+      .then((jsonResponse) => {
+        setData(jsonResponse);
       });
   }, [status]);
 
