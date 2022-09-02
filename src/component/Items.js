@@ -5,7 +5,7 @@ export default function Items({ status }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_API_URI}/items?status=${status}`)
+    fetch(`/api/items?status=${status}`)
       .then((res) => {
         return res.json();
       })

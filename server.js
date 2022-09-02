@@ -5,7 +5,6 @@ const express = require("express");
 const middlewares = jsonServer.defaults();
 const router = jsonServer.router("src/db/data.json");
 
-
 app.use("/api", middlewares, router);
 app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", function (req, res) {

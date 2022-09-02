@@ -47,7 +47,7 @@ export default function CreateItem() {
       return;
     }
 
-    fetch(`${process.env.REACT_APP_BACKEND_API_URI}/items`, {
+    fetch(`/api/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
