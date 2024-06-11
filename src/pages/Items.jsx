@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Item from "./Item.js";
+import Item from "../components/Item";
 
 export default function Items({ status }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/items?status=${status}`)
+    fetch(`${import.meta.env.VITE_BACKEND_API_URI}/api/items?status=${status}`)
       .then((res) => {
         return res.json();
       })

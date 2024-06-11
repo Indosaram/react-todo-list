@@ -1,14 +1,16 @@
-const jsonServer = require("json-server");
-const app = jsonServer.create();
-const path = require("path");
-const express = require("express");
-const middlewares = jsonServer.defaults();
-const router = jsonServer.router("src/db/data.json");
+import pkg from "json-server";
+const { create, defaults, router: _router } = pkg;
+import { join } from "path";
+import { static as expressStatic } from "express";
+
+const app = create();
+const middlewares = defaults();
+const router = _router("src/db/data.json");
 
 app.use("/api", middlewares, router);
-app.use(express.static(path.join(__dirname, "build")));
+app.use(expressStatic(join("dist")));
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+  res.sendFile(join("dist", "index.html"));
 });
 app.listen(3000);
 console.log(`Start server with port 3000`);

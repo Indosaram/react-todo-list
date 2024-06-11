@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import "./CreateItem.css";
 
 function validate(name, value) {
   let errors = { task: "", due: "" };
@@ -47,7 +46,7 @@ export default function CreateItem() {
       return;
     }
 
-    fetch(`/api/items`, {
+    fetch(`${import.meta.env.VITE_BACKEND_API_URI}/api/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

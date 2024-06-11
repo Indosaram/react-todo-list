@@ -4,7 +4,7 @@
       "id": 1,
       "task": "자기",
       "due": "20210901",
-      "status": "done"
+      "status": "todo"
     },
     {
       "id": 2,
@@ -59,6 +59,12 @@
       "task": "게임하기",
       "due": "20221031",
       "status": "done"
+    },
+    {
+      "task": "123",
+      "due": "12341234",
+      "status": "todo",
+      "id": 11
     }
   ]
 }

@@ -4,7 +4,7 @@ export default function Item({ todo: t }) {
   const [todo, setTodo] = useState(t);
 
   function toggleDone() {
-    fetch(`/api/items/${todo.id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_API_URI}/api/items/${todo.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -25,7 +25,7 @@ export default function Item({ todo: t }) {
 
   function deleteItem() {
     if (window.confirm("삭제 하시겠습니까?")) {
-      fetch(`/api/items/${todo.id}`, {
+      fetch(`${import.meta.env.VITE_BACKEND_API_URI}/api/items/${todo.id}`, {
         method: "DELETE",
       }).then((res) => {
         if (res.ok) {

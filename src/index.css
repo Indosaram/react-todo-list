@@ -45,3 +45,7 @@ button {
 .input_area {
   margin-bottom: 10px;
 }
+
+.input_area p {
+  color: red;
+}
